@@ -1,0 +1,27 @@
+server {
+        listen 8080 ssl;
+        server_name  brainy;
+        ssl_certificate /etc/ssl/certs/server.crt;
+        ssl_certificate_key /etc/ssl/private/server.key;
+        root /var/www/repos/brainy-web-frontend/export;
+        index index.html index.htm;
+}
+server {
+        listen 8082 ssl;
+        server_name  brainy;
+        ssl_certificate /etc/ssl/certs/server.crt;
+        ssl_certificate_key /etc/ssl/private/server.key;
+        location ~ ^/([a-zA-Z0-9-]*) {
+                proxy_pass http://0.0.0.0:9999$request_uri;
+        }
+        location = / {
+                proxy_pass http://0.0.0.0:9999$request_uri;
+        }
+}
+server {
+  listen 443 ssl;
+        ssl on;
+  server_name  brainy;
+  ssl_certificate /etc/ssl/certs/server.crt;
+  ssl_certificate_key /etc/ssl/private/server.key;
+}
