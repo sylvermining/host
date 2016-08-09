@@ -1,0 +1,20 @@
+################################################################
+# openssl configuration file.
+# This is mostly used for generation of certificate requests.
+#################################################################
+[policy_match]
+countryName=PE
+stateOrProvinceName=LIMA
+organizationName=AVANTICA TECHNOLOGIES
+organizationalUnitName=AVANTICA
+commonName=brainy
+emailAddress=brainy@avantica.net
+
+[ policy_anything ]
+countryName= PE
+stateOrProvinceName= PE
+localityName= LIMA
+organizationName= AVANTICA TECHNOLOGIES
+organizationalUnitName= AVANTICA
+commonName= brainy
+emailAddress= brainy@avantica.net
